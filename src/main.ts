@@ -1,4 +1,5 @@
 import './style.css';
+// import { TextFormatter, sanitizeInput } from './utils';
 
 class TextEditor {
   container: HTMLElement;
@@ -19,4 +20,4 @@ class TextEditor {
   }
 }
 
-export default TextEditor;
+export { TextEditor };

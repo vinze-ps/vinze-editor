@@ -9,7 +9,6 @@ export default defineConfig(({ command, mode }) => {
         open: true,
       },
       css: {
-        // CSS
       },
     };
   } else {
@@ -17,8 +16,9 @@ export default defineConfig(({ command, mode }) => {
       build: {
         lib: {
           entry: path.resolve(__dirname, 'src/main.ts'),
-          name: 'MyTextEditor',
-          fileName: (format) => `my-text-editor.${format}.js`,
+          name: 'VinzeEditor',
+          fileName: (format) => `vinze-editor.${format}.js`,
+          formats: ['es', 'umd', 'iife'],
         },
         rollupOptions: {
           external: [],
