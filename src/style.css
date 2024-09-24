@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-editor-toolbar {
+  @apply flex space-x-2 mb-2;
+}
+
+.text-editor-content {
+  @apply border p-2 min-h-[200px];
+}
