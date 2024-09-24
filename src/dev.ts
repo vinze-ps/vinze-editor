@@ -1,4 +1,4 @@
 import './style.css';
-import TextEditor from './main';
+import {TextEditor} from './main';
 
 new TextEditor(document.getElementById("vinze-editor")!);

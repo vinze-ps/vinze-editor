@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+    @apply h-full w-full bg-gray-100;
+}
+
 .text-editor-toolbar {
   @apply flex space-x-2 mb-2;
 }
