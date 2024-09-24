@@ -1,17 +1,18 @@
 {
+  "name": "vinze-editor",
+  "version": "1.0.0",
   "main": "dist/vinze-editor.umd.js",
   "module": "dist/vinze-editor.es.js",
   "types": "dist/main.d.ts",
   "files": [
     "dist"
   ],
-  "name": "vinze-editor",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
   "scripts": {
-    "build": "vite build",
-    "dev": "vite"
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@types/node": "^22.6.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
