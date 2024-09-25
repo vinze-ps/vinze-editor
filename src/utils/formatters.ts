@@ -1,4 +1,4 @@
-export class TextFormatter {
+export class TextFormatterUtils {
   static bold(text: string): string {
     return `<b>${text}</b>`;
   }
@@ -6,8 +6,4 @@ export class TextFormatter {
   static italic(text: string): string {
     return `<i>${text}</i>`;
   }
-}
-
-export function sanitizeInput(input: string): string {
-  return input.replace(/<[^>]*>?/gm, '');
 }

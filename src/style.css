@@ -6,10 +6,6 @@ html, body {
     @apply h-full w-full bg-gray-100;
 }
 
-.text-editor-toolbar {
-  @apply flex space-x-2 mb-2;
-}
-
-.text-editor-content {
+.container {
   @apply border p-2 min-h-[200px];
 }
