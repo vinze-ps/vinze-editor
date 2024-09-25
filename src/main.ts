@@ -16,14 +16,23 @@ class TextEditor {
     this.init();
   }
 
-  init() {
-    this.componentsUtils = new ComponentsUtils();
-    this.components.toolbar = this.componentsUtils.createToolbar(this.components.container);
-    this.components.container.classList.add('container');
-    // this.container.contentEditable = 'true';
+  destroy() {
+    this.components.container.innerHTML = '';
   }
 
+  init() {
+    this.components.container.classList.add('container');
+    this.componentsUtils = new ComponentsUtils();
+    this.createComponents();
+  }
 
+  createComponents() {
+    const { container } = this.components;
+    const { editor, toolbar } = this.componentsUtils;
+
+    this.components.toolbar = container.appendChild(toolbar.create());
+    this.components.editor = container.appendChild(editor.create());
+  }
 }
 
 export { TextEditor };
