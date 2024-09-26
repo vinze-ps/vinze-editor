@@ -26,7 +26,7 @@ export class Helpers {
       }
 
       // Merge adjacent identical elements
-      let next = node.nextSibling;
+      let next = node.nextSibling as HTMLElement;
       while (next && next.nodeType === Node.ELEMENT_NODE && next.tagName === node.tagName) {
         // Move the content from the next node into the current node
         while (next.firstChild) {
@@ -34,7 +34,7 @@ export class Helpers {
         }
         // Remove the now-empty next node
         next.parentNode?.removeChild(next);
-        next = node.nextSibling;
+        next = node.nextSibling as HTMLElement;
       }
     });
   }

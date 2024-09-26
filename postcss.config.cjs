@@ -5,9 +5,9 @@ module.exports = {
     require('tailwindcss'),
     require('autoprefixer'),
     prefixer({
-      prefix: '.vinze-editor',
+      prefix: '#vinze-editor',
       transform(prefix, selector, prefixedSelector) {
-        if (selector === ':root' || selector.startsWith('html') || selector.startsWith('body')) {
+        if (selector === ':root' || selector.startsWith('html') || selector.startsWith('body') || selector === "#vinze-editor.container") {
           return selector;
         }
         return prefixedSelector;
