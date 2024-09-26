@@ -1,4 +1,5 @@
 import {Helpers} from "./helpers.ts";
+import {VEToolbarButton} from "../types.ts";
 
 /**
  * A class that contains methods for applying formatting to text.
@@ -6,9 +7,9 @@ import {Helpers} from "./helpers.ts";
 export class Actions {
   /**
    * Applies formatting based on the type using the Selection and Range APIs.
-   * @param type - The formatting type (e.g., 'bold', 'italic').
+   * @param buttonType - The button type to apply formatting for.
    */
-  public static applyFormatting(editor: HTMLElement, tagName: string) {
+  public static applyFormatting(editor: HTMLElement, buttonType: VEToolbarButton) {
     const selection = window.getSelection();
     if (!selection || selection.rangeCount === 0) return;
 
@@ -16,6 +17,10 @@ export class Actions {
 
     // Clone the selected content
     const content = range.cloneContents();
+
+    const tagName = buttonType === "ITALIC" ? "i" : buttonType === "UNDERLINE" ? "u" : "b";
+
+    console.log(selection, range, content, tagName);
 
     // Create a wrapper element
     const wrapper = document.createElement(tagName);

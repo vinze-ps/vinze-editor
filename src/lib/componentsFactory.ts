@@ -1,5 +1,5 @@
 import {Actions} from "./actions.ts";
-import {VEOptions} from "../types.ts";
+import {VEOptions, VEToolbarButton} from "../types.ts";
 
 /**
  * Class representing the components factory.
@@ -36,14 +36,14 @@ export class ComponentsFactory {
 
         // Insert the new <p> after the current block element
         range.collapse(false);
-        range.insertNode(newParagraph);
+        // range.insertNode(newParagraph);
 
-        // Move the cursor inside the new <p>
-        selection.removeAllRanges();
-        const newRange = document.createRange();
-        newRange.setStart(newParagraph, 0);
-        newRange.collapse(true);
-        selection.addRange(newRange);
+        // // Move the cursor inside the new <p>
+        // selection.removeAllRanges();
+        // const newRange = document.createRange();
+        // newRange.setStart(newParagraph, 0);
+        // newRange.collapse(true);
+        // selection.addRange(newRange);
       }
     });
 
@@ -73,7 +73,7 @@ export class ComponentsFactory {
     const toolbar = document.createElement('div');
     toolbar.classList.add('toolbar');
 
-    const buttons = options?.toolbarButtons || ['bold', 'italic', 'underline'];
+    const buttons: VEToolbarButton[] = options?.toolbarButtons || ['BOLD', 'ITALIC', 'UNDERLINE'];
 
     buttons.forEach((buttonType) => {
       const button = this.createToolbarButton(editor, buttonType);
@@ -88,7 +88,7 @@ export class ComponentsFactory {
    * @param type - The type of the button (e.g., 'bold', 'italic').
    * @returns The button HTMLElement.
    */
-  private static createToolbarButton(editor: HTMLElement, type: string): HTMLElement {
+  private static createToolbarButton(editor: HTMLElement, type: VEToolbarButton): HTMLElement {
     const button = document.createElement('button');
     button.classList.add('toolbar__button');
     button.innerHTML = this.getButtonIcon(type);

@@ -1,6 +1,8 @@
+export type VEToolbarButton = "BOLD" | "ITALIC" | "UNDERLINE";
+
 export interface VEOptions {
   initialContent?: string;
-  toolbarButtons?: string[]; // e.g., ['bold', 'italic', 'underline']
+  toolbarButtons?: VEToolbarButton[];
 }
 
 export interface VEComponents {
