@@ -1,7 +1,7 @@
 import './style.css';
 import { VEComponents, VEOptions } from './types';
-import { ComponentsFactory } from './lib/componentsFactory';
 import {Errors} from "./lib/errors.ts";
+import {ComponentsFactory} from "./lib/componentsFactory.ts";
 
 /**
  * Class representing the VinzeEditor text editor.
@@ -10,9 +10,6 @@ export class VinzeEditor {
   // Editor components
   components: VEComponents;
   options?: VEOptions;
-
-  // Components factory
-  private componentsFactory: ComponentsFactory;
 
   /**
    * Creates an instance of VinzeEditor.
@@ -26,7 +23,6 @@ export class VinzeEditor {
 
     this.components = { container };
     this.options = options;
-    this.componentsFactory = new ComponentsFactory(options);
 
     this.init();
   }
@@ -45,8 +41,8 @@ export class VinzeEditor {
   private createComponents() {
     const { container } = this.components;
 
-    this.components.toolbar = this.componentsFactory.createToolbar();
-    this.components.editor = this.componentsFactory.createEditor();
+    this.components.editor = ComponentsFactory.createEditor(this.options);
+    this.components.toolbar = ComponentsFactory.createToolbar(this.components.editor, this.options);
 
     container.appendChild(this.components.toolbar);
     container.appendChild(this.components.editor);
